@@ -1,0 +1,48 @@
+{
+  "name": "dsh-message-pins",
+  "version": "2.0.0",
+  "description": "收藏 DSH 回答：操作条五角星一键收藏，右侧栏收藏中心（标签/笔记/搜索/导出），落盘到 Obsidian 回答收藏目录。合并 message-pins（落盘）、dsh-bookmarks（笔记/标签/跨会话中心/导出）、dsh-pins（右侧栏面板）三者的思路，适配 DSH 0.2.x。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "bookmark",
+    "pin",
+    "obsidian"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
+      ]
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.1-rc.3": "compatible",
+        "0.2.2-rc.1": "compatible"
+      }
+    }
+  }
+}
